@@ -12,7 +12,7 @@ export async function GET() {
   const recentTx = await db.select().from(transactions).orderBy(desc(transactions.createdAt)).limit(10);
 
   const totalProducts = allProducts.length;
-  const totalStockValue = allProducts.reduce((s, p) => s + (p.currentStock * p.costPrice), 0);
+  const totalStockValue = allProducts.reduce((s, p) => s + (p.currentStock * (p.costPrice ?? 0)), 0);
   const lowStockProducts = allProducts.filter((p) => p.currentStock <= p.minStock);
   const outOfStock = allProducts.filter((p) => p.currentStock === 0);
 

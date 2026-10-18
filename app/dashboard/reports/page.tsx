@@ -5,6 +5,7 @@ import { BarChart3, TrendingUp, TrendingDown, DollarSign, Package, ArrowDownCirc
 
 type Transaction = {
   id: string; type: string; quantity: number; totalPrice: number;
+  unitPrice: number | null; reference: string | null;
   productName: string; productSku: string; productUnit: string;
   userName: string; createdAt: string;
 };
